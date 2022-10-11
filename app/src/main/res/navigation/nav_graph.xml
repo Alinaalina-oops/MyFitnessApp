@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ThirdFragment">
+    <fragment
+        android:id="@+id/ThirdFragment"
+        android:name="com.example.myapplication1.ThirdFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_third">
+
+        <action
+            android:id="@+id/action_ThirdFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_ThirdFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.myapplication1.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.myapplication1.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FourthFragment"
+            app:destination="@id/FourthFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_FifthFragment"
+            app:destination="@id/FifthFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/FourthFragment"
+        android:name="com.example.myapplication1.FourthFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_fourth">
+        <action
+            android:id="@+id/action_FourthFragment_to_FirstTraining"
+            app:destination="@id/Training_first" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/FifthFragment"
+        android:name="com.example.myapplication1.FifthFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_fifth">
+        <action
+            android:id="@+id/action_FifthFragment_to_FirstTraining"
+            app:destination="@id/Training_first" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/Training_first"
+        android:name="com.example.myapplication1.Training_first"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_train_first">
+        <action
+        android:id="@+id/action_FirstTraining_to_SecondTraining"
+        app:destination="@id/Training_second" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/Training_second"
+        android:name="com.example.myapplication1.Training_second"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_train_second">
+        <action
+            android:id="@+id/action_SecondTraining_to_ThirdTraining"
+            app:destination="@id/Training_third" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/Training_third"
+        android:name="com.example.myapplication1.Training_third"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_train_third">
+        <action
+            android:id="@+id/action_ThirdTraining_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_ThirdTraining_to_FourthFragment"
+            app:destination="@id/FourthFragment" />
+        <action
+            android:id="@+id/action_ThirdTraining_to_FifthFragment"
+            app:destination="@id/FifthFragment" />
+    </fragment>
+
+</navigation>

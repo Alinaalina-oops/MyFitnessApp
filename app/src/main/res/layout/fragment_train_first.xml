@@ -16,7 +16,30 @@
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/my_button3"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:backgroundTint="#FFFFFF"
+            android:foregroundTint="#FFFFFF"
+            android:foregroundTintMode="screen"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_profile"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+    </LinearLayout>
     <TextView
         android:id="@+id/textView10"
         android:layout_width="380dp"
@@ -81,6 +104,8 @@
         android:layout_marginEnd="122dp"
         android:gravity="center_horizontal"
         android:text="Следующее упражнение"
+        android:background="@drawable/circle_button"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -105,7 +130,7 @@
         android:layout_marginEnd="170dp"
         android:text="Разминка"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

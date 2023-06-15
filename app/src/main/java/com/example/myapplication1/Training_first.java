@@ -35,6 +35,13 @@ public class Training_first extends Fragment {
                         .navigate(R.id.action_FirstTraining_to_SecondTraining);
             }
         });
+        binding.myButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(Training_first.this)
+                        .navigate(R.id.action_FirstTraining_to_Profile);
+            }
+        });
     }
 
     @Override

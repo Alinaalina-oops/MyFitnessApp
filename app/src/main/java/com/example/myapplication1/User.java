@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class User implements Serializable {
+    public int Id;
     private String name;
 
     public String getName() {
@@ -52,13 +53,25 @@ public class User implements Serializable {
 
     public boolean isMale;
 
+    private String level;
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
     @Override
     public String toString() {
         return  name +
                 "," + weight +
                 "," + height +
                 "," + age +
-                "," + isMale;
+                "," + isMale +
+                "," + level +
+                "," + Id;
     }
 
     @Override
@@ -66,11 +79,12 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return weight == user.weight && height == user.height && age == user.age && isMale == user.isMale && Objects.equals(name, user.name);
+        return weight == user.weight && height == user.height && age == user.age && isMale == user.isMale &&
+                Objects.equals(name, user.name) && Objects.equals(level, user.level);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, weight, height, age, isMale);
+        return Objects.hash(name, weight, height, age, isMale, level);
     }
 }

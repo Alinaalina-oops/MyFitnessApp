@@ -24,7 +24,8 @@ public class Training_third extends Fragment {
         binding = FragmentTrainThirdBinding.inflate(inflater, container, false);
 
         Training_third training_third = (Training_third) getFragmentManager().findFragmentById(R.id.Training_third);
-        return binding.getRoot();}
+        return binding.getRoot();
+    }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -60,7 +61,13 @@ public class Training_third extends Fragment {
                 System.exit(0);
             }
         });
-
+        binding.myButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(Training_third.this)
+                        .navigate(R.id.action_ThirdTraining_to_Profile);
+            }
+        });
     }
 
     @Override

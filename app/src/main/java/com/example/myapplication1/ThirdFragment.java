@@ -94,6 +94,8 @@ public class ThirdFragment extends Fragment {
             tempUser.setHeight(Integer.parseInt(userFields[2]));
             tempUser.setAge(Integer.parseInt(userFields[3]));
             tempUser.isMale = Boolean.parseBoolean(userFields[4]);
+            tempUser.setLevel(userFields[5]);
+            tempUser.Id = Integer.parseInt(userFields[6]);
             users.add(tempUser);
         }
 

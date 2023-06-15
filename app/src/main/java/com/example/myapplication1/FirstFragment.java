@@ -21,6 +21,7 @@ public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
     String[] genders = {"Женщина", "Мужчина"};
+    String[] levels = {"Лёгкий", "Средний", "Сложный"};
     public SharedPreferences sharedPreferences;
     private static final String PREFS_FILE = "Account";
 
@@ -37,6 +38,11 @@ public class FirstFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        Spinner spinner_levels =  binding.getRoot().findViewById(R.id.spinner_level);
+        ArrayAdapter<String> adapter_levels = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, levels);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinner_levels.setAdapter(adapter_levels);
+
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -51,6 +57,27 @@ public class FirstFragment extends Fragment {
             }
         };
         spinner.setOnItemSelectedListener(itemSelectedListener);
+
+        AdapterView.OnItemSelectedListener itemSelectedListener2 = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                String item = (String)parent.getItemAtPosition(position);
+                MainActivity mainActivity = (MainActivity)  getActivity();
+                if (position == 0)
+                    mainActivity.setLevel("Лёгкий");
+                else
+                    if (position == 1)
+                        mainActivity.setLevel("Средний");
+                    else
+                        mainActivity.setLevel("Сложный");
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        };
+        spinner_levels.setOnItemSelectedListener(itemSelectedListener2);
 
         return binding.getRoot();
 
@@ -80,10 +107,12 @@ public class FirstFragment extends Fragment {
                     currentUser.setAge(Integer.parseInt(age));
                     MainActivity mainActivity = (MainActivity)  getActivity();
                     currentUser.isMale = mainActivity.getGender();
+                    currentUser.setLevel(mainActivity.getLevel());
 
                     sharedPreferences = getActivity().getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
 
                     int count = sharedPreferences.getInt("userCount", 0);
+                    currentUser.Id = count;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("user"+count, currentUser.toString());
                     editor.putInt("userCount", count + 1);

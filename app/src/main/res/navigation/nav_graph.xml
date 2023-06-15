@@ -32,7 +32,9 @@
         android:name="com.example.myapplication1.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
+        <action
+            android:id="@+id/action_SecondFragment_to_profile"
+            app:destination="@id/Profile" />
         <action
             android:id="@+id/action_SecondFragment_to_FourthFragment"
             app:destination="@id/FourthFragment" />
@@ -49,7 +51,9 @@
         <action
             android:id="@+id/action_FourthFragment_to_FirstTraining"
             app:destination="@id/Training_first" />
-
+        <action
+            android:id="@+id/action_FourthFragment_to_Profile"
+            app:destination="@id/Profile" />
     </fragment>
 
     <fragment
@@ -60,6 +64,9 @@
         <action
             android:id="@+id/action_FifthFragment_to_FirstTraining"
             app:destination="@id/Training_first" />
+        <action
+            android:id="@+id/action_FifthFragment_to_Profile"
+            app:destination="@id/Profile" />
     </fragment>
 
     <fragment
@@ -70,6 +77,9 @@
         <action
         android:id="@+id/action_FirstTraining_to_SecondTraining"
         app:destination="@id/Training_second" />
+        <action
+            android:id="@+id/action_FirstTraining_to_Profile"
+            app:destination="@id/Profile" />
 
     </fragment>
     <fragment
@@ -78,9 +88,14 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_train_second">
         <action
-            android:id="@+id/action_SecondTraining_to_ThirdTraining"
-            app:destination="@id/Training_third" />
-
+            android:id="@+id/action_SecondTraining_to_TrainingVideo"
+            app:destination="@id/TrainingVideo" />
+        <action
+            android:id="@+id/action_SecondTraining_to_Measurements"
+            app:destination="@id/Measurements" />
+        <action
+            android:id="@+id/action_SecondTraining_to_Profile"
+            app:destination="@id/Profile" />
     </fragment>
     <fragment
         android:id="@+id/Training_third"
@@ -91,11 +106,62 @@
             android:id="@+id/action_ThirdTraining_to_SecondFragment"
             app:destination="@id/SecondFragment" />
         <action
+            android:id="@+id/action_ThirdTraining_to_Profile"
+            app:destination="@id/Profile" />
+        <action
             android:id="@+id/action_ThirdTraining_to_FourthFragment"
             app:destination="@id/FourthFragment" />
         <action
             android:id="@+id/action_ThirdTraining_to_FifthFragment"
             app:destination="@id/FifthFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/TrainingVideo"
+        android:name="com.example.myapplication1.TrainingVideo"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/trainig_video">
+        <action
+            android:id="@+id/action_TrainingVideo_to_ThirdTraining"
+            app:destination="@id/Training_third" />
+        <action
+            android:id="@+id/action_TrainingVideo_to_SecondTraining"
+            app:destination="@id/Training_second" />
+   </fragment>
+    <fragment
+        android:id="@+id/Measurements"
+        android:name="com.example.myapplication1.Measurements"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/measurements">
 
-</navigation>
+        <action
+            android:id="@+id/action_Measurements_to_ThirdTraining"
+            app:destination="@id/Recommend" />
+    </fragment>
+    <fragment
+        android:id="@+id/Recommend"
+        android:name="com.example.myapplication1.Recommend"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/recommend">
+
+        <action
+            android:id="@+id/action_Recommend_to_End"
+            app:destination="@id/Training_third" />
+    </fragment>
+    <fragment
+        android:id="@+id/Profile"
+        android:name="com.example.myapplication1.Profile"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/profile">
+        <action
+            android:id="@+id/action_Profile_to_Statistics"
+            app:destination="@id/Statistics" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/Statistics"
+        android:name="com.example.myapplication1.Statistics"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/statistics">
+
+    </fragment>
+    </navigation>
